@@ -8,6 +8,7 @@ namespace BotWeChatChannel.Forwarder.Models
         public static string AppSecret {get; private set;}
         
         public static string Token {get;private set;}
+
         private WeChatConfig() {
 
         }

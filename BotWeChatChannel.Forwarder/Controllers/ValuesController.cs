@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Bot.Connnector.DirectLine;
+using Microsoft.Bot.Connector.DirectLine;
+using BotWeChatChannel.Forwarder.Models;
 
 namespace BotWeChatChannel.Forwarder.Controllers
 {
@@ -14,6 +15,7 @@ namespace BotWeChatChannel.Forwarder.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            DirectLineClient client = new DirectLineClient(BotConfig.Secret);
             return new string[] { "value1", "value2" };
         }
 
