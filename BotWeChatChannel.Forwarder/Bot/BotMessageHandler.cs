@@ -29,10 +29,11 @@ namespace BotWeChatChannel.Forwarder.Bot
     {
         private DirectLineClient _client = new DirectLineClient(BotConfig.Secret);
         private ConversationMap _conversationMap = ConversationMapFactory.Map;
-        private ResponseMessageHandler _handler = ResponseMessageHandlerFactory.Handler;
+        private ResponseMessageHandler _handler;
         
-        public BotMessageHandler(Stream stream) : base(stream) 
+        public BotMessageHandler(Stream stream) : base(stream)
         {
+            _handler = ResponseMessageHandlerFactory.GetHandler(_client);
         }
 
         private string GetConversationIdOrStartAConversation(string username)

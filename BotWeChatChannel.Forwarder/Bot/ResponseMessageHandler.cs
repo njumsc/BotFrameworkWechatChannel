@@ -17,7 +17,7 @@ namespace BotWeChatChannel.Forwarder.Bot
     
     public class ResponseMessageHandler
     {
-        protected DirectLineClient _client;
+        protected DirectLineClient client;
 
         public ResponseMessageHandler(DirectLineClient client)
         {
