@@ -33,6 +33,7 @@ namespace BotWeChatChannel.Forwarder.Bot
 
         public override IResponseMessageBase DefaultResponseMessage(IRequestMessageBase requestMessage)
         {
+            requestMessage.
             throw new NotSupportedRequestTypeException();
         }
 
