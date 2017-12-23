@@ -5,19 +5,38 @@ namespace BotWeChatChannel.Forwarder.Bot
 {
     public class ResponseMessageHandlerMock : ResponseMessageHandler
     {
-        
+        public override IResponseMessageBase Interpret(ResourceResponse response)
+        {
+            return null;
+        }
+
+        public ResponseMessageHandlerMock(DirectLineClient client) : base(client)
+        {
+        }
     }
     
     public class ResponseMessageHandler
     {
-        public IResponseMessageBase Interpret(ResourceResponse response)
+        protected DirectLineClient _client;
+
+        public ResponseMessageHandler(DirectLineClient client)
+        {
+            this._client = client;
+        }
+        
+        
+        public virtual IResponseMessageBase Interpret(ResourceResponse response)
         {
             return null;
-        }        
+        }
+        
     }
 
     public static class ResponseMessageHandlerFactory
     {
-        public static ResponseMessageHandler Handler { get; } = new ResponseMessageHandlerMock();
+        public static ResponseMessageHandler GetHandler(DirectLineClient client)
+        {
+            return new ResponseMessageHandlerMock(client);
+        }
     }
 }

@@ -1,12 +1,10 @@
-using System;
 using System.IO;
 using BotWeChatChannel.Forwarder.Exceptions;
 using BotWeChatChannel.Forwarder.Models;
-using Senparc.Weixin.Context;
-using Senparc.Weixin.MP.MessageHandlers;
-using Senparc.Weixin.MP.Entities;
 using Microsoft.Bot.Connector.DirectLine;
-using Microsoft.EntityFrameworkCore.Query.Internal;
+using Senparc.Weixin.Context;
+using Senparc.Weixin.MP.Entities;
+using Senparc.Weixin.MP.MessageHandlers;
 
 namespace BotWeChatChannel.Forwarder.Bot
 {
