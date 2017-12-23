@@ -16,6 +16,7 @@ namespace BotWeChatChannel.Forwarder.Controllers
         public IEnumerable<string> Get()
         {
             DirectLineClient client = new DirectLineClient(BotConfig.Secret);
+
             return new string[] { "value1", "value2" };
         }
 
