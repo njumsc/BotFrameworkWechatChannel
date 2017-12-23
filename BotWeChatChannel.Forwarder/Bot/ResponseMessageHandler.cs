@@ -1,4 +1,5 @@
-﻿using Microsoft.Bot.Connector.DirectLine;
+﻿using System.Collections.Generic;
+using Microsoft.Bot.Connector.DirectLine;
 using Senparc.Weixin.MP.Entities;
 
 namespace BotWeChatChannel.Forwarder.Bot
@@ -21,13 +22,19 @@ namespace BotWeChatChannel.Forwarder.Bot
 
         public ResponseMessageHandler(DirectLineClient client)
         {
-            this._client = client;
+            this.client = client;
         }
         
         
-        public virtual IResponseMessageBase Interpret(ResourceResponse response)
+        public virtual IResponseMessageBase Interpret(string activityId, string conversationId)
         {
-            return null;
+            ActivitySet activitySet = client.Conversations.GetActivities(conversationId);
+
+        }
+
+        private IResponseMessageBase TextMessage(IEnumerable<Activity> activities)
+        {
+            return 
         }
         
     }

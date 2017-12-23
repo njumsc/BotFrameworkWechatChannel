@@ -64,7 +64,7 @@ namespace BotWeChatChannel.Forwarder.Bot
                 Type = ActivityTypes.Message
             };
             var response = _client.Conversations.PostActivity(conversationId, activity);
-            return _handler.Interpret(response);
+            return _handler.Interpret(response.Id, conversationId);
         }
       
         public override IResponseMessageBase OnImageRequest(RequestMessageImage requestMessage)
