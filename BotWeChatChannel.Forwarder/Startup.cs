@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using BotWeChatChannel.Forwarder.Models;
 
 namespace BotWeChatChannel.Forwarder
 {
@@ -35,6 +36,11 @@ namespace BotWeChatChannel.Forwarder
             }
 
             app.UseMvc();
+
+            var weChatConfig = Configuration.GetSection("WeChatConfig");
+
+            WeChatConfig.InitConfig(weChatConfig["AppId"], weChatConfig["AppSecret"], weChatConfig["Token"]);
+            BotConfig.InitConfig(Configuration.GetSection("BotConfig")["SecretKey"]);
         }
     }
 }
